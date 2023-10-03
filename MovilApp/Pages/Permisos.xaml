@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovilApp.Pages.Permisos"
+             Title="Permisos">
+
+    <ScrollView>
+        <Grid BackgroundColor="Silver">
+            
+            <Label  Text="Solicitar Permiso"  FontSize="20"  FontFamily="Chunk Five Print" HorizontalOptions="Fill" Padding="15" Margin="15"/>
+            <StackLayout>
+                <Frame BackgroundColor="Transparent" HeightRequest="80" WidthRequest="80" CornerRadius="0" Padding="0" Margin="250,5,0,0" HorizontalOptions="FillAndExpand">
+                    <Image Source="grupomarpait.png"  Aspect="AspectFit" Margin="0"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="15,70,15,15" Padding="15">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nombre Empleado" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+                </StackLayout>
+                <Frame BackgroundColor="LightGray" BorderColor="LightGray" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="5">
+                    <StackLayout Orientation="Horizontal">
+                        <Entry  Placeholder="Ej.Carlos"
+                                PlaceholderColor="DarkBlue"          TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Número de Empleado" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold" Margin="0,10,0,0"/>
+                </StackLayout>
+                <Frame BackgroundColor="LightGray" BorderColor="LightGray" Margin="0,5,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="5">
+                    <StackLayout Orientation="Horizontal">
+                        <Entry  Placeholder="Ej.0535" PlaceholderColor="DarkBlue" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Departamento/Área" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold" Margin="0,10,0,0"/>
+                </StackLayout>
+                <Frame BackgroundColor="LightGray" BorderColor="LightGray" Margin="0,5,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="5">
+                    <StackLayout Orientation="Horizontal">
+                        <Entry  Placeholder="Ej.Sistemas" PlaceholderColor="DarkBlue" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Motivo de la Solicitud y/o Permiso" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold" Margin="0,10,0,0"/>
+                </StackLayout>
+                <Frame BackgroundColor="LightGray" BorderColor="LightGray" Margin="0,5,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="5">
+                    <StackLayout Orientation="Horizontal">
+                        <Entry  Placeholder="Ej.Asuntos Personales" PlaceholderColor="DarkBlue" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button 
+                    x:Name="BtnDias"
+                    Clicked="BtnDias_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Días" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
+                    CornerRadius="5" WidthRequest="160" Margin="0,15,10,0"/>
+
+                <Button 
+                    x:Name="BtnHoras"
+                    Clicked="BtnHoras_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Horas" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
+                    CornerRadius="5" WidthRequest="160" Margin="0,15,10,0"/>
+
+
+                <StackLayout HorizontalOptions="StartAndExpand" Margin="10" Padding="15"  >
+                    <Picker FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold" x:Name="picker"
+                            Title="Permiso Por Días:">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>A cuenta de Días de Vacaciones</x:String>
+                                <x:String>A cuenta de Días no laborales, laborados</x:String>
+                                
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        
+                    </Picker>
+                </StackLayout>
+                
+                <StackLayout Margin="0,5,0,0" Padding="5">
+                    <Label Text="Del Día" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+
+                    <DatePicker MinimumDate="{Binding MinDate}"
+                                MaximumDate="{Binding MaxDate}"
+                                Date="{Binding SelectedDate}" />
+
+
+                <StackLayout HorizontalOptions="EndAndExpand">
+                    <Label Text="Al Día" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"
+                           />
+                    <DatePicker MinimumDate="{Binding MinDate}"
+                                MaximumDate="{Binding MaxDate}"
+                                Date="{Binding SelectedDate}" />
+
+                </StackLayout>
+                <!--Se define el formato de las horas (Reloj)-->
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="De la hora" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+                    <TimePicker Time="{Binding SelectedTime}" />
+                </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <Label Text="A la hora" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+                        <TimePicker Time="{Binding SelectedTime}" />
+                    </StackLayout>
+                    <!--Validar si es por dias o por horas para mostrar los datos correspondientes-->
+                    <Label Text="Permiso de Días para Ausentarse" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+                    <Frame BackgroundColor="LightGray" BorderColor="LightGray" Margin="0,5,0,0" Padding="0" HorizontalOptions="Start" CornerRadius="5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry  Placeholder="Ej.2" PlaceholderColor="DarkBlue" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Fill" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Permiso de Horas para Ausentarse" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+                    <Frame BackgroundColor="LightGray" BorderColor="LightGray" Margin="0,5,0,0" Padding="0" HorizontalOptions="Start" CornerRadius="5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry  Placeholder="Ej.5hrs" PlaceholderColor="DarkBlue" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Fill" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+
+                <Button 
+                    x:Name="BtnContinuar"
+                    Clicked="BtnContinuar_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Continuar" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
+                    CornerRadius="10" WidthRequest="160" Margin="0,15,10,0"
+                />
+
+                <Button
+                    x:Name="BtnPermiso"
+                    Clicked="BtnPermiso_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Nuevo Permiso" BackgroundColor="#1E90FF" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
+                    CornerRadius="10" WidthRequest="165" Margin="0,10,10,0"
+                />
+
+            </StackLayout>
+
+           
+        </Grid>
+    </ScrollView>
+    
+</ContentPage>

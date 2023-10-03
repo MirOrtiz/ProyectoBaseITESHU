@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovilApp.Pages.Reportes"
+             Title="Reportes">
+
+    <ScrollView>
+        <Grid BackgroundColor="Silver">
+            <Label  Text="Generar Reportes"  FontSize="20"  FontFamily="Chunk Five Print" HorizontalOptions="Fill" Padding="15" Margin="15"/>
+            <StackLayout>
+                <Frame BackgroundColor="Transparent" HeightRequest="80" WidthRequest="80" CornerRadius="0" Padding="0" Margin="250,5,0,0" HorizontalOptions="FillAndExpand">
+                    <Image Source="grupomarpait.png"  Aspect="AspectFit" Margin="0"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="StartAndExpand" Margin="150" Padding="15">
+                <Picker x:Name="picker" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"
+                    Title="Selecciona el Reporte a Generar">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Días de Vacaciones Autorizados</x:String>
+                            <x:String>Días Restantes de Vacaciones</x:String>
+                            <x:String>Días Detallados por Años</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            <!--<Label Text="{Binding Source={x:Reference picker}, Path=SelectedItem}"/>-->
+            </StackLayout>
+            
+
+            <StackLayout HorizontalOptions="Center" Margin="300" Padding="15">
+                <Button 
+        x:Name="BtnReportes"
+        Clicked="BtnReportes_Clicked"
+        HorizontalOptions="Center"
+        Text="Generar Reportes" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="16"  CornerRadius="10" WidthRequest="240" Margin="0,20,0,0"/>
+                  
+
+                <Button 
+        x:Name="BtnHistorial"
+        Clicked="BtnHistorial_Clicked"
+        HorizontalOptions="Center"
+        Text="Ver Historial de Reportes" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="16"  CornerRadius="10" WidthRequest="240" Margin="0,20,0,0"/>
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

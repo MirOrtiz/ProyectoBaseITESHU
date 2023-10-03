@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MovilApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MovilApp"
+    xmlns:pages="clr-namespace:MovilApp.Pages"
+    Shell.FlyoutBehavior="Flyout">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Perfil"
+        Icon="https://cdn.icon-icons.com/icons2/2144/PNG/48/person_paper_id_card_profile_user_icon_131800.png"
+        ContentTemplate="{DataTemplate pages:Perfil}"
+    />
+
+    <ShellContent 
+        Title="Permisos"
+        Icon="https://cdn.icon-icons.com/icons2/2144/PNG/48/person_paper_id_card_profile_user_icon_131800.png"
+        ContentTemplate="{DataTemplate pages:Permisos}"/>
+    
+    <ShellContent 
+        Title="Reportes"
+        Icon="https://cdn.icon-icons.com/icons2/20/PNG/48/businessapplication_distributor_report_document_negocio_2319.png"
+        ContentTemplate="{DataTemplate pages:Reportes}"/>
+    
+    <ShellContent 
+        Title="Calendarizacion"
+        Icon="https://cdn.icon-icons.com/icons2/317/PNG/48/calendar-icon_34471.png"
+        ContentTemplate="{DataTemplate pages:Calendarizacion}"/>
+    
+    <ShellContent 
+        Title="Departamentos"
+        Icon="https://cdn.icon-icons.com/icons2/2063/PNG/48/person_account_file_folder_document_icon_124634.png"
+        ContentTemplate="{DataTemplate pages:Departamento}"/>
+
+</Shell>

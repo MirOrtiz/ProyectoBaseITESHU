@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovilApp.Pages.HistorialReportes"
+             Title="HistorialReportes">
+    <ScrollView>
+        <Grid BackgroundColor="Silver">
+
+            <Label  Text="Historial Reportes"  FontSize="20"  FontFamily="Chunk Five Print" HorizontalOptions="Fill" Padding="15" Margin="15"/>
+            <StackLayout>
+                <Frame BackgroundColor="Transparent" HeightRequest="80" WidthRequest="80" CornerRadius="0" Padding="0" Margin="250,5,0,0" HorizontalOptions="FillAndExpand">
+                    <Image Source="grupomarpait.png"  Aspect="AspectFit" Margin="0"/>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="Center" Margin="0,50,0,0" Padding="10">
+                <TableView Intent="Form">
+                    <TableRoot>
+                        <TableSection Title="Folio">
+                            <TextCell Text="1"/>
+                        </TableSection>
+
+                        <TableSection Title="Nombre">
+                            <TextCell Text="1"/>
+                        </TableSection>
+
+                        <TableSection Title="Fecha Solicitud">
+                            <TextCell Text="1"/>
+                        </TableSection>
+                        
+                        <TableSection Title="Motivo Permiso">
+                            <TextCell Text="1"/>
+                        </TableSection>
+                        
+                        <TableSection Title="Dias de Permiso">
+                            <TextCell Text="1"/>
+                        </TableSection>
+                        
+                        <TableSection Title="Estado Solicitud">
+                            <TextCell Text="1"/>
+                        </TableSection>
+                        
+                        <TableSection Title="Archivo">
+                            <TextCell Text="1"/>
+                        </TableSection>
+                        
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+
+            <!--Boton Continuar-->
+            <StackLayout HorizontalOptions="Center" Margin="450" Padding="15">
+                <Button 
+                    x:Name="BtnContinuar"
+                    Clicked="BtnContinuar_Clicked"
+                    Text="Continuar" 
+                    BackgroundColor="#FFA07A"
+                    TextColor="Black" FontAttributes="None"               FontFamily="Chunk Five Print" FontSize="18"     
+                    CornerRadius="10" WidthRequest="160" Margin="0,15,10,0"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
