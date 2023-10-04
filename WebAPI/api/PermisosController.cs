@@ -15,6 +15,27 @@ namespace WebAPI.api
         {
 
         }
+        [HttpGet("ObtenerPermiso")]
+        public ActionResult<List<Permisos>> ObtenerPermisos()
+        {
+            try
+            {
+                var r = repositorio.Query<Permisos>("Select * from Permisos");
+                if (r != null)
+                {
+                    return Ok(r);
+                }
+                else
+                {
+                    return BadRequest(repositorio.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(repositorio.Error);
+            }
+
+        }
     }
 
       

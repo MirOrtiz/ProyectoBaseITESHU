@@ -17,7 +17,7 @@
             <StackLayout HorizontalOptions="FillAndExpand" Margin="15,70,15,15" Padding="15">
                     <!--fecha-->
                 <StackLayout Margin="0,5,0,0" Padding="5">
-                    <Label Text="Del Día" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
+                    <Label Text="Fecha" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold"/>
 
                     <DatePicker x:Name="fecha" MinimumDate="{Binding MinDate}"
                                 MaximumDate="{Binding MaxDate}"
@@ -79,14 +79,14 @@ Checked="Option_Checked" Unchecked="Option_Unchecked" IsChecked="True"/>
                 </StackPanel>-->
 
                 <Button 
-                    x:Name="BtnDias"
+                    x:Name="dias"
                     Clicked="BtnDias_Clicked"
                     HorizontalOptions="Center"
-                    Text="Días" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
+                    Text="Dias" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
                     CornerRadius="5" WidthRequest="160" Margin="0,15,10,0"/>
 
                 <Button 
-                    x:Name="BtnHoras"
+                    x:Name="horas"
                     Clicked="BtnHoras_Clicked"
                     HorizontalOptions="Center"
                     Text="Horas" BackgroundColor="#FFA07A" TextColor="Black" FontAttributes="None" FontFamily="Chunk Five Print" FontSize="18"
@@ -94,7 +94,7 @@ Checked="Option_Checked" Unchecked="Option_Unchecked" IsChecked="True"/>
 
 
                 <StackLayout HorizontalOptions="StartAndExpand" Margin="10" Padding="15"  >
-                    <Label Text="Permiso por Dias" />
+                    <Label Text="Permiso por Dias" FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold" />
                     <Picker x:Name="pickDias" />
                     <!--<Picker FontSize="16"  FontFamily="OpenSans-Regular" FontAttributes="Bold" x:Name="picker"
                             Title="Permiso Por Días:">

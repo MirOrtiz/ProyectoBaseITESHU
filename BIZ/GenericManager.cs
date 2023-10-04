@@ -11,8 +11,10 @@ namespace BIZ
         protected string tabla { get; private set; }
         protected string urlBase { get; private set; }
         protected HttpClient httpClient { get; private set; }
+        
+        protected BaseValidator<T> validator;
 
-        protected string Error { get; private set; }
+        public string Error { get; protected set; }
         public GenericManager(string urlBase, BaseValidator<T> validador)
         {
             this.tabla=typeof(T).Name;
@@ -21,6 +23,7 @@ namespace BIZ
             httpClient.BaseAddress = new Uri(urlBase);
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            validator = validador;
 
         }
 
@@ -44,12 +47,42 @@ namespace BIZ
 
         public T Insertar(T item)
         {
-            return InsertarAsync(item).Result;
+            //item.idEmpleado = 1;
+
+            var r = validator.Validate(item);
+            if (r.IsValid)
+            {
+                return InsertarAsync(item).Result;
+            }
+            else
+            {
+                Error = "Errores de Validación: ";
+                foreach (var error in r.Errors)
+                {
+                    Error += error + " ";
+                }
+                item.idEmpleado = 0;
+                return null;
+            }
+
         }
 
         public T Actualizar(T item)
         {
-            return ActualiarAsync(item).Result;
+            var r = validator.Validate(item);
+            if (r.IsValid)
+            {
+                return ActualiarAsync(item).Result;
+            }
+            else
+            {
+                Error = "Errores de Validación: ";
+                foreach (var error in r.Errors)
+                {
+                    Error += error;
+                }
+                return null;
+            }
         }
 
         public bool Eliminar(int id)
@@ -57,6 +90,10 @@ namespace BIZ
             return EliminarAsync(id).Result;
         }
 
+        public T ObtenerPorId(int id)
+        {
+            return ObtenerPorIdAsync(id).Result;
+        }
         #endregion
 
         #region MetodosAsincronos
