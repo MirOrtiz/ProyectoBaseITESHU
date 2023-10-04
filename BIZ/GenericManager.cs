@@ -97,6 +97,23 @@ namespace BIZ
         #endregion
 
         #region MetodosAsincronos
+
+
+        private async Task<T> ObtenerPorIdAsync(int id)
+        {
+            HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/{id}").ConfigureAwait(false);
+            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                Error = "";
+                return JsonConvert.DeserializeObject<T>(content);
+            }
+            else
+            {
+                Error = content;
+                return null;
+            }
+        }
         public async Task<List<T>> ObtenerTodosAsync()
         {
             HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}").ConfigureAwait(false);
