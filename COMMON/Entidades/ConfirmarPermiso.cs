@@ -6,17 +6,25 @@ using System.Threading.Tasks;
 
 namespace COMMON.Entidades
 {
-    public class ConfirmarPermiso:Base
+    public class ConfirmarPermiso : Base
     {
-        //public int idEmpleado { get; set; }
-        public string nombreEmpleado { get; set; }
-        public int numEmpleado { get; set; }
+        public int idConfPermiso { get; set; }
+        public DateOnly fecha { get; set; }
+        public string nombre { get; set; }
+        public string clave { get; set; }
         public string departamento { get; set; }
         public string permisoPor { get; set; }
-        public DateOnly dias { get; set; }
-        public DateTime horas { get; set; }
+        public string dias { get; set; }
+        public string horas { get; set; }
         public int diasAusente { get; set; }
+        public DateOnly fecha1 { get; set; }
+        public DateOnly fecha2 { get; set; }
+        public string horasAusente {get; set;}
+        public DateTime hora1 { get; set; }
+        public DateTime hora2 { get; set; }
         public string motivoPermiso { get; set; }
+        public string permisoConSueldo { get; set; }
+        public string permisoSinSueldo { get; set; }
 
     }
     

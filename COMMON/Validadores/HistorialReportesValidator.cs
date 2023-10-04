@@ -12,13 +12,13 @@ namespace COMMON.Validadores
     {
         public HistorialReportesValidator()
         {
-          //RuleFor(r => r.idReporte).NotEmpty();
-            RuleFor(r => r.nombreEmpleado).NotEmpty();
-            RuleFor(r => r.fechaSolicitud).NotEmpty();
+            RuleFor(r => r.idHistReportes).NotEmpty();
+            RuleFor(r => r.nombre).NotEmpty();
+            RuleFor(r => r.fecha).NotEmpty();
             RuleFor(r => r.motivoPermiso).NotEmpty();
             RuleFor(r => r.diasAusente).NotEmpty();
             RuleFor(r => r.estadoSolicitud).NotEmpty();
-            RuleFor(r => r.Archivo).NotEmpty();
+            RuleFor(r => r.archivo).NotEmpty();
 
         }
     }

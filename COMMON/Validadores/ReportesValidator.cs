@@ -12,6 +12,7 @@ namespace COMMON.Validadores
     {
         public ReportesValidator() 
         {
+            RuleFor(r => r.idReporte).NotEmpty();
             RuleFor(r => r.reportesDias).NotEmpty();
             RuleFor(r => r.reportesRestantes).NotEmpty();
             RuleFor(r => r.reportesAnios).NotEmpty();

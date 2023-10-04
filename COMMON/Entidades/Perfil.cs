@@ -8,12 +8,13 @@ namespace COMMON.Entidades
 {
     public class Perfil:Base
     {
-       // public int idEmpleado { get; set; }
-        public string nombreEmpleado { get; set; }
-        public int numEmpleado { get; set; }
+        public int idEmpleado { get; set; }
+        public string nombre { get; set; }
+        public int clave { get; set; }
         public string departamento { get; set; }
         public string telefono { get; set; }
-        public string emailEmpleado { get; set; }
+        public string correo { get; set; }
+        public DateOnly fechaIngreso { get; set; }
 
     }
 }

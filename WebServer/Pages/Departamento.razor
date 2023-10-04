@@ -1,0 +1,59 @@
+﻿@inject NotificationService NotificationService
+
+@page "/Departamento"
+
+
+<h3>Departamento</h3>
+<RadzenDataGrid  Data="@items" TItem="Departamento"></RadzenDataGrid>
+
+<RadzenCard class="my-4">
+    <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+     
+        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+            Departamento
+            <RadzenTextBox @bind-Value="@gap" />
+        </RadzenStack>
+        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+            Responsable del Departamento
+            <RadzenTextBox @bind-Value="@gap" />
+        </RadzenStack>
+        <RadzenButton Click=@(args => OnClick("Success button")) Text="Solicitud Aprobada" ButtonStyle="ButtonStyle.Success" />
+        <RadzenButton Click=@(args => OnClick("Warning button")) Text="Solicitud Pendiente" ButtonStyle="ButtonStyle.Warning" />
+        <RadzenButton Click=@(args => OnClick("Danger button")) Text="Solicitud Rechazada" ButtonStyle="ButtonStyle.Danger" />
+        
+    </RadzenStack>
+</RadzenCard>
+
+
+@code {
+    List<Departamento> items;
+    DepartamentoManager manager;
+
+    bool value;
+    DateTime? val = DateTime.Now;
+    //DateTime val;
+
+
+    Orientation orientation = Orientation.Horizontal;
+    AlignItems alignItems = AlignItems.Normal;
+    JustifyContent justifyContent = JustifyContent.Normal;
+    FlexWrap wrap = FlexWrap.NoWrap;
+    string gap = " ";
+    bool reverse;
+
+    private void OnClick(string text)
+    {
+        // NotificationService.Notify(new NotificationMessage { Severity = NotificationSeverity.Info, Summary = "Button Clicked", Detail = text });
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        manager = FabricManager.DepartamentoManager();
+    }
+    async Task Editar(Departamento item)
+    {
+        
+    }
+
+}

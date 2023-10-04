@@ -17,7 +17,7 @@ namespace BIZ
         public static PermisosManager PermisosManager() => new PermisosManager(urlBase, new PermisosValidator());
         public static ReportesManager ReportesManager() => new ReportesManager(urlBase, new ReportesValidator());
         public static CalendarizacionManager CalendarizacionManager() => new CalendarizacionManager(urlBase, new CalendarizacionValidator());
-        public static DepartamentoManager DepartamentosManager() => new DepartamentoManager(urlBase, new DepartamentoValidator());
+        public static DepartamentoManager DepartamentoManager() => new DepartamentoManager(urlBase, new DepartamentoValidator());
         public static ConfirmarPermisoManager ConfirmarPermisoManager() => new ConfirmarPermisoManager(urlBase, new ConfirmarPermisoValidator());
         public static HistorialReportesManager HistorialReportesManager() => new HistorialReportesManager(urlBase, new HistorialReportesValidator());
         public static ConfiguracionManager ConfiguracionManager() => new ConfiguracionManager(urlBase, new ConfiguracionValidator());

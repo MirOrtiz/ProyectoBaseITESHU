@@ -14,9 +14,13 @@
                 ShowPagingSummary="true" Data="@items" TItem="Configuracion"
                 LogicalFilterOperator="LogicalFilterOperator.Or">
     <Columns>
+        <RadzenDataGridColumn TItem="Configuracion" Title="Días de Vacaciones" Property="diasVacaciones" Width="50px" />
+        <RadzenDataGridColumn TItem="Configuracion" Title="Dias Tomados" Property="diasTomados" Width="50px" />  
+        <RadzenDataGridColumn TItem="Configuracion" Title="Dias Restantes" Property="diasRestantes" Width="50px" />
         <RadzenDataGridColumn TItem="Configuracion" Title="Años de Trabajo" Property="aniosTrabajo" Width="50px" />
-        <RadzenDataGridColumn TItem="Configuracion" Title="Días de Vacaciones" Property="DiasVacaciones" Width="50px" />
-        <RadzenDataGridColumn TItem="Configuracion" Title="" Property="" Width="50px" />  
+        <RadzenDataGridColumn TItem="Configuracion" Title="Fecha Ingreso" Property="fechaIngreso" Width="50px" />
+
+
     </Columns>
     </RadzenDataGrid>
 

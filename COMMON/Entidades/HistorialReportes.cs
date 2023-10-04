@@ -9,13 +9,13 @@ namespace COMMON.Entidades
     public class HistorialReportes:Base
     {
         // public int idEmpleado { get; set; }
-        public int idReporte { get; set; }
-        public string nombreEmpleado { get; set; }
-        public DateTime fechaSolicitud { get; set; }
+        public int idHistReportes { get; set; }
+        public DateOnly fecha { get; set; }
+        public string nombre { get; set; }
         public string motivoPermiso { get; set; }
         public int diasAusente { get; set; }
         public string estadoSolicitud { get; set; }
-        public string Archivo { get; set; }
+        public string archivo { get; set; }
 
 
     }

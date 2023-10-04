@@ -12,11 +12,13 @@ namespace COMMON.Validadores
     {
         public PerfilValidator() 
         {
-            RuleFor(p => p.nombreEmpleado).NotEmpty();
-            RuleFor(p => p.numEmpleado).NotEmpty();
+            RuleFor(p => p.idEmpleado).NotEmpty();
+            RuleFor(p => p.nombre).NotEmpty();
+            RuleFor(p => p.clave).NotEmpty();
             RuleFor(p => p.departamento).NotEmpty();
             RuleFor(p => p.telefono).NotEmpty();
-            RuleFor(p => p.emailEmpleado).NotEmpty();
+            RuleFor(p => p.correo).NotEmpty();
+            RuleFor(p => p.fechaIngreso).NotEmpty();
 
         }
     }

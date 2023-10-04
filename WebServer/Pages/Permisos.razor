@@ -4,98 +4,103 @@
 
 <h3>Permisos</h3>
 
-<RadzenDataGrid  Data="@items" TItem="Permisos"></RadzenDataGrid>
+<RadzenDataGrid Data="@items" TItem="Permisos"></RadzenDataGrid>
 
 <RadzenCard class="my-4">
     <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.End" Wrap="FlexWrap.Wrap" Gap="4px">
         <RadzenButton Click=@(args => OnClick(" ")) Text="Nuevo Permiso" Icon="add_circle_outline" ButtonStyle="ButtonStyle.Info">  </RadzenButton>
     </RadzenStack>
-   
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
-            Fecha
-            <RadzenTextBox @bind-Value="@gap" />
-        </RadzenStack>
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
-            Folio
-            <RadzenTextBox @bind-Value="@gap" />
-        </RadzenStack>
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap"  Gap="4px">
-            Nombre
-            <RadzenTextBox @bind-Value="@gap" />
-        </RadzenStack>
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
-            Clave
-            <RadzenTextBox @bind-Value="@gap" />
-        </RadzenStack>
-       
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap"  Gap="4px">
-            Departamento
-            <RadzenTextBox @bind-Value="@gap" />
-        </RadzenStack>
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="fecha" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Fecha
+    </RadzenStack>
+    <RadzenDatePicker @bind-Value=@fecha ShowTime="true" DateFormat="dd/MM/yyyy" />
 
-        <RadzenCheckBox @bind-Value=@value Name="dias" />
-        <RadzenLabel Text="Días" Component="dias" Style="margin-left: 8px; vertical-align: middle;" />
-        <RadzenCheckBox @bind-Value=@value Name="horas" />
-        <RadzenLabel Text="Horas" Component="horas" Style="margin-left: 8px; vertical-align: middle;" />
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="idPermiso" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Folio
+        <RadzenText @bind-Value="@idPermiso" />
+    </RadzenStack>
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="nombre" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Nombre
+        <RadzenTextBox @bind-Value="@nombre" />
+    </RadzenStack>
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="clave" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Clave
+        <RadzenTextBox @bind-Value="@clave" />
+    </RadzenStack>
+
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="departamento" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Departamento
+        <RadzenTextBox @bind-Value="@departamento" />
+    </RadzenStack>
+
+    <RadzenCheckBox @bind-Value=@dias Name="dias" />
+    <RadzenLabel Text="Días" Component="dias" Style="margin-left: 8px; vertical-align: middle;" />
+    <RadzenCheckBox @bind-Value=@horas Name="horas" />
+    <RadzenLabel Text="Horas" Component="horas" Style="margin-left: 8px; vertical-align: middle;" />
 
     <div class="rz-p-3 rz-text-align-fill">
-            <select>
-                <option value="1">A cuenta de días de vaciones</option>
-                <option value="2">Acuenta de días no laborales, laborados</option>
-            </select>
-        </div>  
+        <select>
+            <option value="1">A cuenta de días de vaciones</option>
+            <option value="2">Acuenta de días no laborales, laborados</option>
+        </select>
+    </div>
     <div class="rz-p-12 rz-text-align-fill">
-       
-              
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+
+
+        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="fecha1" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             Del Día
         </RadzenStack>
-         <RadzenDatePicker @bind-Value=@val ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
+        <RadzenDatePicker @bind-Value=@fecha1 ShowTime="true" DateFormat="dd/MM/yyyy" />
         <b></b>
-         <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="fecha2" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             Al Día
         </RadzenStack>
-        <RadzenDatePicker @bind-Value=@val ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt"  />
-         <b></b>
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenDatePicker @bind-Value=@fecha2 ShowTime="true" DateFormat="dd/MM/yyyy" />
+        <b></b>
+        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="hora1" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             De la Hora
         </RadzenStack>
-        <RadzenDatePicker @bind-Value=@val ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
+        <RadzenDatePicker @bind-Value=@hora1 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
         <b></b>
-        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="hora2" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             A la Hora
         </RadzenStack>
-        <RadzenDatePicker @bind-Value=@val ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
+        <RadzenDatePicker @bind-Value=@hora2 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
 
     </div>
-          
-    
-    <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
-        Motivo Permiso
-        <RadzenTextBox @bind-Value="@gap" />
-    </RadzenStack>
-    <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
-        Permiso de Días para Ausentarse
-        <RadzenTextBox @bind-Value="@gap" />
-    </RadzenStack>
-    
 
-    
+
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="motivoPermiso" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Motivo Permiso
+        <RadzenTextBox @bind-Value="@motivoPermiso" />
+    </RadzenStack>
+    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="diasAusente" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        Permiso de Días para Ausentarse
+        <RadzenText @bind-Value="@diasAusente" />
+    </RadzenStack>
+
+    @* <RadzenCheckBox @bind-Value=@ConSueldo Name="ConSueldo" />
+    <RadzenLabel Text="Permiso Con Goce de Sueldo" Component="ConSueldo" Style="margin-left: 8px; vertical-align: middle;" />
+    <RadzenCheckBox @bind-Value=@SinSueldo Name="SinSueldo" />
+    <RadzenLabel Text="Permiso Sin Goce de Sueldo" Component="SinSueldo" Style="margin-left: 8px; vertical-align: middle;" /> *@
+
+
+
 </RadzenCard>
 
 <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem" Wrap="FlexWrap.Wrap">
-    <RadzenButton Click=@(args => OnClick("Primary button")) Text="Enviar Solicitud" ButtonStyle="ButtonStyle.Primary" />    
-    @* <RadzenLink Target="Index.razor" Text="Enviar Solicitud"/>  @*  Redirreccionar a otra pagina *@ 
+    <RadzenButton Click=@(args => OnClick("Primary button")) Text="Enviar Solicitud" ButtonStyle="ButtonStyle.Primary" />
+    @* <RadzenLink Target="Index.razor" Text="Enviar Solicitud"/>  @*  Redirreccionar a otra pagina *@
 </RadzenStack>
-              @* Condicionar el alert para que se muestre solo cuando se pulse el boton Enviar Solicitud *@
-<RadzenAlert AlertStyle="AlertStyle.Success" Variant="Variant.Flat" Shade="Shade.Lighter" >
+@* Condicionar el alert para que se muestre solo cuando se pulse el boton Enviar Solicitud *@
+<RadzenAlert AlertStyle="AlertStyle.Success" Variant="Variant.Flat" Shade="Shade.Lighter">
     Tu Solicitud ha sido enviada Correctamente
 </RadzenAlert>
 
-        @* <Template Context="dat">
+@* <Template Context="dat">
                 <RadzenButton Icon="edit" Click="(()=>Editar(dat))" ButtonStyle="ButtonStyle.Warning" />
                 @* <RadzenButton Icon="delete" Click="(()=>Eliminar(dato))" ButtonStyle="ButtonStyle.Danger" /> *@
-        @* </Template> *@ 
+@* </Template> *@
 
 
 
@@ -104,10 +109,13 @@
     PermisosManager manager;
 
     bool value;
-    DateTime? val = DateTime.Now;
+    DateTime? fecha;
+    DateTime? fecha1;
+    DateTime? fecha2;
+    DateTime? hora1 = DateTime.Now;
+    DateTime? hora2 = DateTime.Now;
+
     //DateTime val;
-
-
 
 
     Orientation orientation = Orientation.Horizontal;
@@ -115,6 +123,19 @@
     JustifyContent justifyContent = JustifyContent.Normal;
     FlexWrap wrap = FlexWrap.NoWrap;
     string gap = " ";
+    string gap1 = " ";
+    int idPermiso = 0;
+    string nombre = " ";
+    string clave = " ";
+    string departamento = " ";
+    string ConSueldo = " ";
+    string SinSueldo = " ";
+    string dias = " ";
+    string horas = " ";
+    string motivoPermiso = " ";
+    int diasAusente = 0;
+    string permConSueldo = " ";
+    string permSinSueldo = " ";
     bool reverse;
 
     private void OnClick(string text)
@@ -126,38 +147,74 @@
     {
         base.OnInitialized();
         manager = FabricManager.PermisosManager();
+        //List<string> dias = new List<string>();
+        //dias.Add("A cuenta de días de vacaciones");
+        //dias.Add("A cuenta de días no laborales, laborados");
+        //pikerDias.ItemsSource = dias;
+
+                                                                                                            
     }
 
-    async Task Editar(Perfil item)
+    async Task Editar(Permisos item)
     {
-        // string titulo = item.id_empleado == 0 ? "Agregar Perfil" : "Editar Perfil";
-        // var result = await DialogService.OpenAsync(titulo, ds =>
+    //     string titulo = item.idPermiso == 0 ? "Nuevo Permiso" : "Editar Permiso";
+    //     var result = await DialogService.OpenAsync(titulo, ds =>
     // @<RadzenStack Gap="1.Srom">
     //     <div class="row">
-    //         <div class="col-2"></div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.nombreEmpleado class="w-100" /></div>  //cambiar por el id_empleado
+    //         <div class="col-2">Folio</div>
+    //         <div class="col-4"><RadzenText @bind-value=@item.idPermiso class="w-100" /></div>
+    //         <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+    //             Fecha
+    //         </RadzenStack>
+    //         <RadzenDatePicker @bind-value=@item.fecha ShowTime="true" DateFormat="dd/mm/yyyy" />
     //         <div class="col-2">Nombre</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.nombreEmpleado class="w-100" /></div>
-    //         <div class="col-2">Numero Empleado</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.numEmpleado class="w-100" /></div>
+    //         <div class="col-4"><RadzenTextBox @bind-value=@item.nombre class="w-100" /></div>
+    //         <div class="col-2">Clave</div>
+    //         <div class="col-4"><RadzenTextBox @bind-value=@item.clave class="w-100" /></div>
     //         <div class="col-2">Departamento</div>
+    //         <div class="col-4"><RadzenTextBox @bind-value=@item.departamento class="w-100" /></div>
+
+    //         <RadzenCheckBox @bind-value=@item.dias Name="dias" />
+    //         <RadzenLabel Text="Días" Component="dias" Style="margin-left: 8px; vertical-align: middle;" />
+    //         <RadzenCheckBox @bind-value=@item.horas Name="horas" />
+    //         <RadzenLabel Text="Horas" Component="horas" Style="margin-left: 8px; vertical-align: middle;" />
+
+    //         <div class="rz-p-3 rz-text-align-fill">
+    //             <label Text="Por Dias" />
+    //             <Picker x:Name="pikerDias" />
+    //             dias = pikerDias.SelectedItem
+    //         </div>
+    //         <div class="col-2">Días para Ausentarse</div>
+    //         <div class="col-4"><RadzenText @bind-Value=@item.diasAusente class="w-100" /></div>
+
     //         <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
     //             Del Día
     //         </RadzenStack>
-    //         <RadzenDatePicker @bind-Value=@val ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
+    //         <RadzenDatePicker @bind-Value=@item.fecha1 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
     //         <b></b>
     //         <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
     //             Al Día
     //         </RadzenStack>
-    //         <RadzenDatePicker @bind-Value=@val ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
-            
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.departamento class="w-100" /></div>
+    //         <RadzenDatePicker @bind-Value=@item.fecha2 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
+
+    //         <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+    //             De la Hora
+    //         </RadzenStack>
+    //         <RadzenDatePicker @bind-Value=@item.hora1 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
+    //         <b></b>
+    //         <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+    //             A la Hora
+    //         </RadzenStack>
+    //         <RadzenDatePicker @bind-Value=@item.hora2 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
     //         <div class="col-2">Motivo Permiso</div>
     //         <div class="col-4"><RadzenTextBox @bind-Value=@item.motivoPermiso class="w-100" /></div>
-    //         <div class="col-2">Días para Ausentarse</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.diasAusente class="w-100" /></div>
+    //         <div class="col-2">Permiso Con Goce de Sueldo</div>
+    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.permConSueldo class="w-100" /></div>
+    //         <div class="col-2">Permiso Sin Goce de Sueldo</div>
+    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.permSinSueldo class="w-100" /></div>
+
     //     </div>
     // </RadzenStack>
-    // );
+    //  );
     }
 }
