@@ -32,8 +32,8 @@ public partial class Permisos : ContentPage
 	{
 		await Navigation.PushAsync(new Permisos());
 
-		//Permisos permisos = new Permisos();
-		string permisos = " ";
+		Permisos permisos = new Permisos();
+		//string permisos = " ";
 		permisos = idPermiso.Text;
 		permisos = fecha.Date.ToString();
 		permisos = nombre.Text;
@@ -53,7 +53,7 @@ public partial class Permisos : ContentPage
         if (permisosManager.Insertar(permisos) != null)
         {
             DisplayAlert("Solicitud Permisos", "Confirma tu Solicitud de Permiso", "OK");
-            await Navigation.PushAsync(new Permsios());
+            await Navigation.PushAsync(new Permisos(Permsios));
 
         }
         else
