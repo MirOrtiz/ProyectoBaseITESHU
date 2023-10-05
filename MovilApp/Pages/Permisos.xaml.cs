@@ -6,13 +6,13 @@ namespace MovilApp.Pages;
 
 public partial class Permisos : ContentPage
 {
-	//Permisos permimso;
-	//PermisosManager permisosManager;
-	public Permisos()  //Permisos permiso
+	Permisos permimso;
+	PermisosManager permisosManager;
+	public Permisos(Permisos permiso)  //Permisos permiso
     {
 		InitializeComponent();
-		//this.permimso = permiso;
-		//permisosManager = FabricManager.PermisosManager();
+		this.permimso = permiso;
+		permisosManager = FabricManager.PermisosManager();
 
 		List<string> dias = new List<String>();
 		dias.Add("A cuenta de Días de Vacaciones");
@@ -30,25 +30,24 @@ public partial class Permisos : ContentPage
     }
 	private async void BtnContinuar_Clicked(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new Permisos());
+		//await Navigation.PushAsync(new Permisos());
 
-		Permisos permisos = new Permisos();
-		//string permisos = " ";
-		permisos = idPermiso.Text;
-		permisos = fecha.Date.ToString();
-		permisos = nombre.Text;
-		permisos = clave.Text;
-		permisos = departamento.Text;
-        permisos = dias.Text;
-		permisos = pickDias.SelectedItem.ToString();
-		permisos = horas.Text;
-		permisos = diasAusente.Text;
-		permisos = fecha1.Date.ToString();
-		permisos = fecha2.Date.ToString();
-		permisos = horasAusente.Text;
-		permisos = hora1.Time.ToString();
-		permisos = hora2.Time.ToString();
-		permisos = motivoPermiso.Text;
+		Permisos permisos = new Permisos(permimso);
+
+        permisos.idPermiso = idPermiso;
+        permisos.nombre = " ";
+        permisos.clave = " ";
+        permisos.departamento = " ";
+        permisos.permisoPor = " ";
+        permisos.dias = " ";
+        permisos.horas = " ";
+        permisos.diasAusente = " ";
+        permisos.fecha1 = " ";
+        permisos.fecha2 = " ";
+        permisos.horasAusente = " ";
+        permisos.hora1 = " ";
+        permisos.hora2 = " ";
+        permisos.motivoPermiso = " ";
 
         if (permisosManager.Insertar(permisos) != null)
         {
@@ -61,23 +60,48 @@ public partial class Permisos : ContentPage
             DisplayAlert("Solicitud Permisos", permisosManager.Error, "OK");
         }
 
-        try
-		{
-			permisos = $"fecha : {permisos}";
-			Console.WriteLine(permisos);
-        }catch (Exception ex)
-		{
-			//Permisos.Add(permisos);
-			Console.WriteLine(ex.ToString());
-		}
-		
-		
-        
-    }
+
+
+
+        //string permisos = " ";
+        //permisos = idPermiso.Text;
+        //permisos = fecha.Date.ToString();
+        //permisos = nombre.Text;
+        //permisos = clave.Text;
+        //permisos = departamento.Text;
+        //permisos = dias.Text;
+        //permisos = pickDias.SelectedItem.ToString(); 
+        //permisos = horas.Text;
+        //permisos = diasAusente.Text;
+        //permisos = fecha1.Date.ToString();
+        //permisos = fecha2.Date.ToString();
+        //permisos = horasAusente.Text;
+        //permisos = hora1.Time.ToString();
+        //permisos = hora2.Time.ToString();
+        //permisos = motivoPermiso.Text;
+
+        //string cadena = "insert into Permisos(idPermiso,fecha,nombre,clave,departamento,dias,pickDias,horas,diasAusente,fecha1,fecha2,hora1,hora2,motivoPermiso) values (" + idPermiso + ", " + fecha + ", " + nombre + ", " + clave + ", " + departamento + ", " + dias + ", " + pickDias + ", " + horas + ", " + diasAusente + ", " + fecha1 + ", " + fecha2 + ", " + horasAusente + ", " + hora1 + ", " + hora2 + ", " + motivoPermiso + ")";
+
+
+        //}
+
+        //      try
+        //{
+        //	permisos = $"fecha : {permisos}";
+        //	Console.WriteLine(permisos);
+        //      }catch (Exception ex)
+        //{
+        //	//Permisos.Add(permisos);
+        Console.WriteLine(idPermiso);
+        //}
+
+
+
+}
 
     private async void BtnPermiso_Clicked(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new Permisos());
+		//await Navigation.PushAsync(new Permisos());
     }
     //private void SelectAll_Checked(object sender, RoutedEventArgs e)
     //{
