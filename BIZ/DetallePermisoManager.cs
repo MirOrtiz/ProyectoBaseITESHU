@@ -9,33 +9,33 @@ using System.Threading.Tasks;
 
 namespace BIZ
 {
-    public class CalendarizacionManager : GenericManager<Calendarizacion>
+    public class DetallePermisoManager : GenericManager<DetallePermiso> 
     {
-        public CalendarizacionManager(string urlBase, BaseValidator<Calendarizacion> validador) : base(urlBase, validador)
+        public DetallePermisoManager(string urlBase, BaseValidator<DetallePermiso> validador) : base(urlBase, validador)
         {
+
         }
-        public List<Calendarizacion> ObtenerCalendarizacion()
+        public List<DetallePermiso> ObtenerDetallePermiso()
         {
             try
             {
-                Error = "";
-                return ObtenerCalendarizacionAsync().Result;
+                Error = " ";
+                return ObtenerDetallePermisoAsync().Result;
             }
             catch (Exception ex)
             {
                 Error = ex.Message;
                 return null;
-
             }
         }
-        private async Task<List<Calendarizacion>> ObtenerCalendarizacionAsync()
+        private async Task<List<DetallePermiso>> ObtenerDetallePermisoAsync()
         {
-            HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/ObtenerCalendarizacion").ConfigureAwait(false);
+            HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/ObtenerDetallePermiso").ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                Error = "";
-                return JsonConvert.DeserializeObject<List<Calendarizacion>>(content);
+                Error = " ";
+                return JsonConvert.DeserializeObject<List<DetallePermiso>>(content);
             }
             else
             {

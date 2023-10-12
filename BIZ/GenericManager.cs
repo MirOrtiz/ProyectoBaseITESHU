@@ -76,7 +76,7 @@ namespace BIZ
             }
             else
             {
-                Error = "Errores de Validación: ";
+                Error = "Errores de Validacion: ";
                 foreach (var error in r.Errors)
                 {
                     Error += error;

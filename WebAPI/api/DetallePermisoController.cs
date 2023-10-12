@@ -1,26 +1,23 @@
 ﻿using COMMON.Entidades;
 using DAL;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace WebAPI.api
 {
     [Route("api/[controller]")]
     [ApiController]
-
-    public class PermisosController : GenericController<Permisos>
+    public class DetallePermisoController : GenericController<DetallePermiso>
     {
-        public PermisosController() : base(FabricRepository.RepositorioPermisos())
+        public DetallePermisoController() : base(FabricRepository.RepositorioDetallePermiso())
         {
 
         }
-        [HttpGet("ObtenerPermiso")]
-        public ActionResult<List<Permisos>> ObtenerPermiso()
+        [HttpGet("ObtenerDetallePermiso")]
+        public ActionResult<List<DetallePermiso>> ObtenerDetallePermiso()
         {
             try
             {
-                var r = repositorio.Query<Permisos>("Select * from Permisos");
+                var r = repositorio.Query<DetallePermiso>("Select * from DetallePermiso");
                 if (r != null)
                 {
                     return Ok(r);
@@ -34,9 +31,6 @@ namespace WebAPI.api
             {
                 return BadRequest(repositorio.Error);
             }
-
         }
     }
-
-      
 }

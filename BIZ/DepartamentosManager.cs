@@ -9,33 +9,32 @@ using System.Threading.Tasks;
 
 namespace BIZ
 {
-    public class CalendarizacionManager : GenericManager<Calendarizacion>
+    public class DepartamentosManager : GenericManager<Departamentos>
     {
-        public CalendarizacionManager(string urlBase, BaseValidator<Calendarizacion> validador) : base(urlBase, validador)
+        public DepartamentosManager(string urlBase, BaseValidator<Departamentos> validador) : base(urlBase, validador)
         {
         }
-        public List<Calendarizacion> ObtenerCalendarizacion()
+        public List<Departamentos> ObtenerDepartamento()
         {
             try
             {
                 Error = "";
-                return ObtenerCalendarizacionAsync().Result;
+                return ObtenerDepartamentoAsync().Result;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 Error = ex.Message;
                 return null;
-
             }
         }
-        private async Task<List<Calendarizacion>> ObtenerCalendarizacionAsync()
+        private async Task<List<Departamentos>> ObtenerDepartamentoAsync()
         {
-            HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/ObtenerCalendarizacion").ConfigureAwait(false);
+            HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/ObtenerDepartamento").ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 Error = "";
-                return JsonConvert.DeserializeObject<List<Calendarizacion>>(content);
+                return JsonConvert.DeserializeObject<List<Departamentos>>(content);
             }
             else
             {

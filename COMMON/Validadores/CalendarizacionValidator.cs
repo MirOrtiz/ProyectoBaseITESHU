@@ -17,8 +17,7 @@ namespace COMMON.Validadores
             RuleFor(c => c.diasTomados).NotEmpty();
             RuleFor(c => c.diasRestantes).NotEmpty();
             RuleFor(c => c.aniosTrabajo).NotEmpty();
-            RuleFor(c => c.fechaIngreso).NotEmpty();
-
+          
         }
     }
 }

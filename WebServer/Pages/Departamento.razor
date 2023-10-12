@@ -27,7 +27,7 @@
 
 @code {
     List<Departamento> items;
-    DepartamentoManager manager;
+    DepartamentosManager manager;
 
     bool value;
     DateTime? val = DateTime.Now;
@@ -49,7 +49,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        manager = FabricManager.DepartamentoManager();
+        manager = FabricManager.DepartamentosManager();
     }
     async Task Editar(Departamento item)
     {

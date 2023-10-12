@@ -13,6 +13,5 @@ namespace COMMON.Entidades
         public string diasTomados { get; set; }
         public string diasRestantes { get; set; }
         public int aniosTrabajo { get; set; }
-        public DateOnly fechaIngreso { get; set; }
     }
 }

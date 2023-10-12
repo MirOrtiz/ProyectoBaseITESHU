@@ -3,25 +3,23 @@ using DAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace WebAPI.api
 {
     [Route("api/[controller]")]
     [ApiController]
-
-    public class PermisosController : GenericController<Permisos>
+    public class DepartamentoController : GenericController<Departamentos>
     {
-        public PermisosController() : base(FabricRepository.RepositorioPermisos())
+        public DepartamentoController() : base(FabricRepository.RepositorioDepartamento())
         {
 
         }
-        [HttpGet("ObtenerPermiso")]
-        public ActionResult<List<Permisos>> ObtenerPermiso()
+        [HttpGet("ObtenerDepartamento")]
+        public ActionResult<List<Departamentos>> ObtenerDepartamento()
         {
             try
             {
-                var r = repositorio.Query<Permisos>("Select * from Permisos");
-                if (r != null)
+                var r = repositorio.Query<Departamentos>("Select * from Departamento");
+                if(r != null)
                 {
                     return Ok(r);
                 }
@@ -34,9 +32,6 @@ namespace WebAPI.api
             {
                 return BadRequest(repositorio.Error);
             }
-
         }
     }
-
-      
 }

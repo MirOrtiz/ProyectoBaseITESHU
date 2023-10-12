@@ -17,12 +17,11 @@ public partial class Permisos : ContentPage
 		List<string> dias = new List<String>();
 		dias.Add("A cuenta de Días de Vacaciones");
 		dias.Add("A cuenta de Días no laborales, laborados");
-
-		pickDias.ItemsSource = dias;
+        pickDias.ItemsSource = dias;
 	}
     private async void BtnDias_Clicked(object sender, EventArgs e)
     {
-		dias.IsEnabled = true;
+        dias.IsEnabled = true;
 	}
     private async void BtnHoras_Clicked(object sender, EventArgs e)
     {
@@ -32,33 +31,34 @@ public partial class Permisos : ContentPage
 	{
 		//await Navigation.PushAsync(new Permisos());
 
-		Permisos permisos = new Permisos(permimso);
+		Permisos permisos = new Permisos(this);    // @
 
         permisos.idPermiso = idPermiso;
-        permisos.nombre = " ";
-        permisos.clave = " ";
-        permisos.departamento = " ";
-        permisos.permisoPor = " ";
-        permisos.dias = " ";
-        permisos.horas = " ";
-        permisos.diasAusente = " ";
-        permisos.fecha1 = " ";
-        permisos.fecha2 = " ";
-        permisos.horasAusente = " ";
-        permisos.hora1 = " ";
-        permisos.hora2 = " ";
-        permisos.motivoPermiso = " ";
+        permisos.nombre = nombre;
+        permisos.clave = clave;
+        permisos.departamento = departamento;
+        permisos.pickDias = null; ;
+        permisos.dias = null;
+        permisos.horas = horas;
+        permisos.diasAusente = null;
+        permisos.fecha1.Date.ToString();
+        permisos.fecha2.Date.ToString();
+        permisos.horasAusente = horasAusente;
+        permisos.hora1 = hora1;
+        permisos.hora2 = hora2;
+        permisos.motivoPermiso = motivoPermiso;
 
-        if (permisosManager.Insertar(permisos) != null)
-        {
-            DisplayAlert("Solicitud Permisos", "Confirma tu Solicitud de Permiso", "OK");
-            await Navigation.PushAsync(new Permisos(Permsios));
-
-        }
-        else
-        {
-            DisplayAlert("Solicitud Permisos", permisosManager.Error, "OK");
-        }
+        //if (permisosManager.Insertar(permisos) != null)
+        //{
+        //    DisplayAlert("Solicitud Permisos", "Confirma tu Solicitud de Permisos", "OK");
+        //    await Navigation.PushAsync(new Permisos(permimso));
+            
+        //}
+        //else
+        //{
+        //    DisplayAlert("Solicitud Permiso", permisosManager.Error, "OK");
+        //    //DisplayAlert("Solicitud Permisos", permisosManager.Error, "OK");
+        //}
 
 
 
@@ -83,8 +83,6 @@ public partial class Permisos : ContentPage
         //string cadena = "insert into Permisos(idPermiso,fecha,nombre,clave,departamento,dias,pickDias,horas,diasAusente,fecha1,fecha2,hora1,hora2,motivoPermiso) values (" + idPermiso + ", " + fecha + ", " + nombre + ", " + clave + ", " + departamento + ", " + dias + ", " + pickDias + ", " + horas + ", " + diasAusente + ", " + fecha1 + ", " + fecha2 + ", " + horasAusente + ", " + hora1 + ", " + hora2 + ", " + motivoPermiso + ")";
 
 
-        //}
-
         //      try
         //{
         //	permisos = $"fecha : {permisos}";
@@ -92,7 +90,7 @@ public partial class Permisos : ContentPage
         //      }catch (Exception ex)
         //{
         //	//Permisos.Add(permisos);
-        Console.WriteLine(idPermiso);
+        //Console.WriteLine(idPermiso);
         //}
 
 

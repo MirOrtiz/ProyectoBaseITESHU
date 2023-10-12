@@ -1,26 +1,23 @@
 ﻿using COMMON.Entidades;
 using DAL;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace WebAPI.api
 {
     [Route("api/[controller]")]
     [ApiController]
-
-    public class PermisosController : GenericController<Permisos>
+    public class CalendarizacionController : GenericController<Calendarizacion>
     {
-        public PermisosController() : base(FabricRepository.RepositorioPermisos())
+        public CalendarizacionController() : base(FabricRepository.RepositorioCalendarizacion())
         {
 
         }
-        [HttpGet("ObtenerPermiso")]
-        public ActionResult<List<Permisos>> ObtenerPermiso()
+        [HttpGet("ObtenerCalendarizacion")]
+        public ActionResult<List<Calendarizacion>> ObtenerCalendarizacion()
         {
             try
             {
-                var r = repositorio.Query<Permisos>("Select * from Permisos");
+                var r = repositorio.Query<Calendarizacion>("Select * from Calandarizacion");
                 if (r != null)
                 {
                     return Ok(r);
@@ -34,9 +31,7 @@ namespace WebAPI.api
             {
                 return BadRequest(repositorio.Error);
             }
-
         }
-    }
-
-      
+    }                   //aniosTabajo no debe estar vacio, asignar mas permisos
+                        //Error en fechaIngreso corregir 
 }
