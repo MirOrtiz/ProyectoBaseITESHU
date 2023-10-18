@@ -104,7 +104,7 @@ namespace DAL
 
         public T GetById(int id)
         {
-            return ObtenerDatos<T>($"Select * from {tabla} where Id={id}").SingleOrDefault();
+            return ObtenerDatos<T>($"Select * from {tabla} where Id={id}").SingleOrDefault();  //manda error en la web api
         }
 
         public List<M> Query<M>(string sql) where M : class
@@ -125,7 +125,7 @@ namespace DAL
                     DataTable table = ToDataTable<T>(datos);
                     conexion.Open();
                     int r = 0;
-                    SqlDataAdapter da = new SqlDataAdapter($"Select * from {tabla} where Id={entidad.idEmpleado}", conexion);
+                    SqlDataAdapter da = new SqlDataAdapter($"Select * from {tabla} where Id={entidad.idEmpleado}", conexion);  
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     dt.Rows[0].BeginEdit();

@@ -34,11 +34,11 @@ public partial class Permisos : ContentPage
 		Permisos permisos = new Permisos(this);    // @
 
         permisos.idPermiso = idPermiso;
-        permisos.nombre = nombre;
-        permisos.clave = clave;
-        permisos.departamento = departamento;
+        permisos.nombre.Text = "";
+        permisos.clave.Text = "";
+        permisos.departamento.Text = "";
         permisos.pickDias = null; ;
-        permisos.dias = null;
+        permisos.dias.Text = "";
         permisos.horas = horas;
         permisos.diasAusente = null;
         permisos.fecha1.Date.ToString();
@@ -46,7 +46,7 @@ public partial class Permisos : ContentPage
         permisos.horasAusente = horasAusente;
         permisos.hora1 = hora1;
         permisos.hora2 = hora2;
-        permisos.motivoPermiso = motivoPermiso;
+        permisos.motivoPermiso.Text = "";
 
         //if (permisosManager.Insertar(permisos) != null)
         //{
