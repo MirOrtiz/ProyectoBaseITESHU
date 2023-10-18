@@ -9,7 +9,7 @@ namespace COMMON.Entidades
 {
     public class Permisos:Base
     {
-        public int idPermiso { get; set; }
+        public int Id { get; set; }
         public DateOnly fechaSolicitud { get; set; }
         public string tipoPermiso { get; set; }
         public DateOnly periodoDiasInicio { get; set; }

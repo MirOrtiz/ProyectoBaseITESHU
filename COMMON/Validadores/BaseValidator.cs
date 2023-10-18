@@ -12,7 +12,7 @@ namespace COMMON.Validadores
     {
         public BaseValidator()
         {
-            RuleFor(e=>e.idEmpleado).NotEmpty().GreaterThan(0);
+            RuleFor(e=>e.Id).NotEmpty().GreaterThan(0);
             //RuleFor(e => e.FechaHora).NotEmpty();
         }
     }

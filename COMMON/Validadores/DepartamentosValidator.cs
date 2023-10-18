@@ -12,7 +12,7 @@ namespace COMMON.Validadores
     {
         public DepartamentosValidator()
         {
-            RuleFor(d => d.idDpto).NotEmpty();
+            RuleFor(d => d.Id).NotEmpty();
             RuleFor(d => d.nombreDpto).NotEmpty();
             RuleFor(d => d.responsableDpto).NotEmpty();
            

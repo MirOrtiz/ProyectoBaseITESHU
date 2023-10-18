@@ -8,7 +8,7 @@ namespace COMMON.Entidades
 {
     public class Departamentos:Base
     {
-        public int idDpto { get; set; }
+        public int Id { get; set; }
         public string nombreDpto { get; set; }
         public string responsableDpto { get; set; }
         

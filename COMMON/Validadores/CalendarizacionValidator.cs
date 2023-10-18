@@ -12,7 +12,7 @@ namespace COMMON.Validadores
     {
         public CalendarizacionValidator()
         {
-            RuleFor(c => c.idCalendar).NotEmpty();
+            RuleFor(c => c.Id).NotEmpty();
             RuleFor(c => c.diasVacaciones).NotEmpty();
             RuleFor(c => c.diasTomados).NotEmpty();
             RuleFor(c => c.diasRestantes).NotEmpty();

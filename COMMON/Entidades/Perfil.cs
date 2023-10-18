@@ -9,7 +9,7 @@ namespace COMMON.Entidades
 {
     public class Perfil:Base
     {
-        public int idEmpleado { get; set; }
+        public int Id { get; set; }
         public string claveEmp { get; set; }
         public string nombreEmp { get; set; }
         public string telefonoEmp { get; set; }

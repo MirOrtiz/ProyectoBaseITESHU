@@ -8,7 +8,7 @@ namespace COMMON.Entidades
 {
     public class DetallePermiso:Base
     {
-        public int idDetalle { get; set; }
+        public int Id { get; set; }
         public string conceptoPermiso { get; set; }
         public string permConSueldo { get; set; }
         public string permSinSueldo { get; set; }

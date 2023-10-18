@@ -12,7 +12,7 @@ namespace COMMON.Validadores
     {
         public PermisosValidator()
         {
-            RuleFor(m => m.idPermiso).NotEmpty();
+            RuleFor(m => m.Id).NotEmpty();
             RuleFor(m => m.fechaSolicitud).NotEmpty();
             RuleFor(m => m.tipoPermiso).NotEmpty();
             RuleFor(m => m.periodoDiasInicio).NotEmpty();

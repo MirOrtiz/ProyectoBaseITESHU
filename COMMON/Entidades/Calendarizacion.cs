@@ -8,7 +8,7 @@ namespace COMMON.Entidades
 {
     public class Calendarizacion:Base
     {
-        public int idCalendar { get; set; }
+        public int Id { get; set; }
         public string diasVacaciones { get; set; }
         public string diasTomados { get; set; }
         public string diasRestantes { get; set; }

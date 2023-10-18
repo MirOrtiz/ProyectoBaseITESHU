@@ -8,7 +8,7 @@ namespace COMMON.Entidades
 {
     public abstract class Base
     {
-        public int idEmpleado { get; set; }
+        public int Id { get; set; }
         //public DateTime FechaHora { get; set; }
     }
 }

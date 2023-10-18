@@ -12,7 +12,7 @@ namespace COMMON.Validadores
     {
         public DetallePermisoValidator()
         {
-            RuleFor(t => t.idDetalle).NotEmpty();
+            RuleFor(t => t.Id).NotEmpty();
             RuleFor(t => t.conceptoPermiso).NotEmpty();
             RuleFor(t => t.permConSueldo).NotEmpty();
             RuleFor(t => t.permSinSueldo).NotEmpty();
