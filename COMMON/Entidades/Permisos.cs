@@ -10,19 +10,15 @@ namespace COMMON.Entidades
     public class Permisos:Base
     {
         public int Id { get; set; }
-        public DateOnly fechaSolicitud { get; set; }
+        public DateTime fechaSolicitud { get; set; }
         public string tipoPermiso { get; set; }
-        public DateOnly periodoDiasInicio { get; set; }
-        public DateOnly periodoDiasFin { get; set; }
+        public DateTime periodoDiasInicio { get; set; }
+        public DateTime periodoDiasFin { get; set; }
         public int cantidadDias { get; set; }
-        public DateOnly periodoHorasInicio { get; set; }
-        public DateOnly periodoHorasFin { get; set; }
+        public DateTime periodoHorasInicio { get; set; }
+        public DateTime periodoHorasFin { get; set; }
         public int cantidadHoras { get; set; }     
         public string motivoPermiso { get; set; }
         public string estadoPermiso { get; set; }
     }
 }
-
-
-
-    //Se cambio el DateOnly por DateFormat en la clase Permisos y Perfil

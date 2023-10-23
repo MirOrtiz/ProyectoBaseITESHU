@@ -14,11 +14,7 @@ namespace COMMON.Entidades
         public string nombreEmp { get; set; }
         public string telefonoEmp { get; set; }
         public string correoEmp { get; set; }
-        public DateOnly fechaIngreso { get; set; }
+        public DateTime fechaIngreso { get; set; }
 
     }
 }
-
-
-
-        //Se cambiaron los DateOnly por los DateFormat, en entidades permiso y perfil
