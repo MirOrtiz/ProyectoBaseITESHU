@@ -47,7 +47,7 @@ namespace BIZ
 
         public T Insertar(T item)
         {
-            //item.idEmpleado = 1;
+            item.Id = 1;
 
             var r = validator.Validate(item);
             if (r.IsValid)
@@ -61,7 +61,7 @@ namespace BIZ
                 {
                     Error += error + " ";
                 }
-                item.idEmpleado = 0;
+                item.Id = 0;
                 return null;
             }
 

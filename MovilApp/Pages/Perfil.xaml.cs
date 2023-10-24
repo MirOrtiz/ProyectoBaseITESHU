@@ -26,14 +26,14 @@ public partial class Perfil : ContentPage
         perfiil.email.Text = "";
         perfiil.fechaIngreso.Text = "";
 
-        if(perfilManager.Insertar(perfiil) != null)
-        {
-            DisplayAlert("Perfil", "Este es tu Perfil", "OK");
-            await Navigation.PushAsync(new MainPage());
-        }
-        else
-        {
-            DisplayAlert("Perfil", perfilManager.Error, "OK");
-        }
+        //if(perfilManager.Insertar(perfiil) != null)
+        //{
+        //    DisplayAlert("Perfil", "Este es tu Perfil", "OK");
+        //    await Navigation.PushAsync(new MainPage());
+        //}
+        //else
+        //{
+        //    DisplayAlert("Perfil", perfilManager.Error, "OK");
+        //}
     }
 }

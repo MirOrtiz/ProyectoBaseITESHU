@@ -7,18 +7,18 @@ namespace WebAPI.api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DepartamentoController : GenericController<Departamentos>
+    public class DepartamentosController : GenericController<Departamentos>
     {
-        public DepartamentoController() : base(FabricRepository.RepositorioDepartamento())
+        public DepartamentosController() : base(FabricRepository.RepositorioDepartamentos())
         {
 
         }
-        [HttpGet("ObtenerDepartamento")]
-        public ActionResult<List<Departamentos>> ObtenerDepartamento()
+        [HttpGet("ObtenerDepartamentos")]
+        public ActionResult<List<Departamentos>> ObtenerDepartamentos()
         {
             try
             {
-                var r = repositorio.Query<Departamentos>("Select * from Departamento");
+                var r = repositorio.Query<Departamentos>("Select * from Departamentos");
                 if(r != null)
                 {
                     return Ok(r);

@@ -20,7 +20,7 @@ namespace DAL
         public static IRepositorio<Perfil> RepositorioPerfil() => new Repositorio<Perfil>(cadenaConexion, new PerfilValidator());
         public static IRepositorio<Permisos> RepositorioPermisos() => new Repositorio<Permisos>(cadenaConexion, new PermisosValidator());
         public static IRepositorio<Calendarizacion> RepositorioCalendarizacion() => new Repositorio<Calendarizacion>(cadenaConexion, new CalendarizacionValidator());
-        public static IRepositorio<Departamentos> RepositorioDepartamento() => new Repositorio<Departamentos>(cadenaConexion, new DepartamentosValidator());
+        public static IRepositorio<Departamentos> RepositorioDepartamentos() => new Repositorio<Departamentos>(cadenaConexion, new DepartamentosValidator());
         public static IRepositorio<DetallePermiso> RepositorioDetallePermiso() => new Repositorio<DetallePermiso>(cadenaConexion, new DetallePermisoValidator());
 
     }

@@ -17,7 +17,7 @@ namespace WebAPI.api
         {
             try
             {
-                var r = repositorio.Query<Calendarizacion>("Select * from Calandarizacion");
+                var r = repositorio.Query<Calendarizacion>("Select * from Calendarizacion");
                 if (r != null)
                 {
                     return Ok(r);

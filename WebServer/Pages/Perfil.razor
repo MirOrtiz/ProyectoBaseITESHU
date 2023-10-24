@@ -2,9 +2,9 @@
 
 @page "/Perfil"
 
-<h3>Catalogo de Perfil Empleado</h3>
+<h3>Perfil</h3>
 
-@* <RadzenButton Text="Nuevo" Icon="add" Click="(()=>Editar(new Perfil()))" ButtonStyle="ButtonStyle.Info" /> *@
+<RadzenButton Text="Nuevo" Icon="add" Click="(()=>Editar(new Perfil()))" ButtonStyle="ButtonStyle.Info" /> 
 
 <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false"
                 FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15"
@@ -12,13 +12,15 @@
                 ShowPagingSummary="true" Data="@items" TItem="Perfil"
                 LogicalFilterOperator="LogicalFilterOperator.Or">
     <Columns>
-        <RadzenDataGridColumn TItem="Perfil" Title="Id Empleado" Property="idEmpleado" Width="50px" />
-        <RadzenDataGridColumn TItem="Perfil" Title="Nombre Empleado" Property="nombreEmpleado" />
-        <RadzenDataGridColumn TItem="Perfil" Title="Numero Empleado" Property="numEmpleado"/>
-        <RadzenDataGridColumn TItem="Perfil" Title="Departamento" Property="departamento"/>
-        <RadzenDataGridColumn TItem="Perfil" Title="Telefono" Property="telefono"/>
-        <RadzenDataGridColumn TItem="Perfil" Title="Email Empleado" Property="emailEmpleado"/> 
-        <RadzenDataGridColumn TItem="Perfil" Title="Eliminar Empleado" Width="100px" Filterable="false" Sortable="false">
+        <RadzenDataGridColumn TItem="Perfil" Title="Folio" Property="Id" Width="50px" />
+        <RadzenDataGridColumn TItem="Perfil" Title="Nombre Completo" Property="nombreEmp" />
+        <RadzenDataGridColumn TItem="Perfil" Title="Clave" Property="claveEmp"/>
+        <RadzenDataGridColumn TItem="Perfil" Title="Departamento" Property="departamentoEmp"/>
+        <RadzenDataGridColumn TItem="Perfil" Title="Telefono" Property="telefonoEmp"/>
+        <RadzenDataGridColumn TItem="Perfil" Title="E-mail" Property="correoEmp"/> 
+        <RadzenDataGridColumn TItem="Perfil" Title="Fecha Ingreso" Property="fechaIngreso" />
+
+        <RadzenDataGridColumn TItem="Perfil" Title="Acciones" Width="100px" Filterable="false" Sortable="false">
 
             <Template Context="dato">
                 <RadzenButton Icon="edit" Click="(()=>Editar(dato))" ButtonStyle="ButtonStyle.Warning" />
@@ -38,55 +40,57 @@
 
     private void OnClick(string text)
     {
-        NotificationService.Notify(new NotificationMessage { Severity = NotificationSeverity.Info, Summary = "Button Clicked", Detail = text });
+        //NotificationService.Notify(new NotificationMessage { Severity = NotificationSeverity.Info, Summary = "Button Clicked", Detail = text });
     }
     protected override void OnInitialized()
     {
         base.OnInitialized();
         manager = FabricManager.PerfilManager();
-        ActualizarTabla();
+        Actualizar();
     }
 
-    void ActualizarTabla()
+    void Actualizar()
     {
         items = null;
-        //items = manager.ObtenerTodos.ToList();
+        items = manager.ObtenerTodos;
         StateHasChanged();
     }
 
     async Task Editar(Perfil item)
     {
-        //string titulo = item.idEmpleado == 0 ? "Agregar Perfil" : "Editar Perfil";
-        //var result = await DialogService.OpenAsync(titulo, ds =>
-    // @<RadzenStack Gap="1.Srom">
-    //     <div class="row">
-    //         <div class="col-2">Id Empleado</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.idEmpleado class="w-100"/></div>  //cambiar por el id_empleado
-    //         <div class="col-2">Nombre</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.nombreEmpleado class="w-100" /></div>
-    //         <div class="col-2">Numero Empleado</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.numEmpleado class="w-100" /></div>
-    //         <div class="col-2">Departamento</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.departamento class="w-100" /></div>
-    //         <div class="col-2">Telefono</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.telefono class="w-100" /></div>
-    //         <div class="col-2">Email Empleado</div>
-    //         <div class="col-4"><RadzenTextBox @bind-Value=@item.emailEmpleado class="w-100" /></div>
-    //     </div>
-    //     <div class="row">
-    //         <div class="col-6"><RadzenButton Icon="save" Text="Guardar" Click="(()=>Guardar(item))" ButtonStyle="ButtonStyle.Success" class="w-100" /></div>
-    //         <div class="col-6"><RadzenButton Icon="cancel" Click="() => ds.Close(false)" Text="Cancelar" ButtonStyle="ButtonStyle.Danger" class="w-100" /></div>
-    //     </div>
-    // </RadzenStack>
-    //);
+        string titulo = item.Id == 0 ? "Agregar Perfil" : "Editar Perfil";
+        var result = await DialogService.OpenAsync(titulo, ds =>
+    @<RadzenStack Gap="1.Srom">
+        <div class="row">
+            <div class="col-2">Folio</div>
+            <div class="col-4"><RadzenText @bind-Value=@item.Id class="w-100"/></div> 
+            <div class="col-2">Nombre Completo</div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.nombreEmp class="w-100" /></div>
+            <div class="col-2">Clave</div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.claveEmp class="w-100" /></div>
+            <div class="col-2">Departamento</div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.departamentoEmp class="w-100" /></div>
+            <div class="col-2">Telefono</div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.telefonoEmp class="w-100" /></div>
+            <div class="col-2">E-mail</div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.correoEmp class="w-100" /></div>
+            <div class="col-2">Fecha Ingreso</div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.fechaIngreso class="w-100" /></div>
+        </div>
+        <div class="row">
+            <div class="col-6"><RadzenButton Icon="save" Text="Guardar" Click="(()=>Guardar(item))" ButtonStyle="ButtonStyle.Success" class="w-100" /></div>
+            <div class="col-6"><RadzenButton Icon="cancel" Click="() => ds.Close(false)" Text="Cancelar" ButtonStyle="ButtonStyle.Danger" class="w-100" /></div>
+        </div>
+    </RadzenStack>
+    );
     }
 
     async Task Eliminar(Perfil item)
     {
-        // var r = await DialogService.Confirm($"Deseas eliminar al Empleado(a) {item.idEmpleado} {item.nombreEmpleado} {item.numEmpleado}?", "AppVacacionesMarpa", new ConfirmOptions() { OkButtonText = "Si", CancelButtonText = "No" });
+        // var r = await DialogService.Confirm($"Deseas eliminar al Empleado(a) {item.Id} {item.nombreEmpl} ?", "AppVacacionesMarpa", new ConfirmOptions() { OkButtonText = "Si", CancelButtonText = "No" });
         // if (r.Value)
         // {
-        //     if (manager.Eliminar(item.idEmpleado))
+        //     if (manager.Eliminar(item.Id))
         //     {
         //         ActualizarTabla();
         //     }
@@ -101,11 +105,11 @@
 
     async Task Guardar(Perfil item)
     {
-        // var r = item.idEmpleado == 0 ? manager.Insertar(item) : manager.Actualizar(item);
+        // var r = item.Id == 0 ? manager.Insertar(item) : manager.Actualizar(item);
         // if(r != null)
         // {
         //     DialogService.Close();
-        //     ActualizarTabla();
+        //     Actualizar();
         // }
         // else
         // {
