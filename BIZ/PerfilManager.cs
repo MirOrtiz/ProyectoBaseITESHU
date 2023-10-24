@@ -1,4 +1,5 @@
 ﻿using COMMON.Entidades;
+using COMMON.Modelos;
 using COMMON.Validadores;
 using Newtonsoft.Json;
 using System;
@@ -15,7 +16,7 @@ namespace BIZ
         public PerfilManager(string urlBase, BaseValidator<Perfil> validador) : base(urlBase, validador)
         {
         }
-        public List<Perfil> ObtenerPerfil()
+        public List<ListaPerfilModel> ObtenerPerfil()
         {
             try
             {
@@ -28,14 +29,14 @@ namespace BIZ
                 return null;
             }
         }
-        private async Task<List<Perfil>> ObtenerPerfilAsync()
+        private async Task<List<ListaPerfilModel>> ObtenerPerfilAsync()
         {
             HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/ObtenerPerfil").ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 Error = " ";
-                return JsonConvert.DeserializeObject<List<Perfil>>(content);
+                return JsonConvert.DeserializeObject<List<ListaPerfilModel>>(content);
             }
             else
             {

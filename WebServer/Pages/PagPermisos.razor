@@ -1,6 +1,6 @@
 ﻿@inject NotificationService NotificationService
 
-@page "/Permisos"
+@page "/PagPermisos"
 
 <h3>Permisos</h3>
 
@@ -173,17 +173,17 @@
 
     async Task Editar(Permisos item)
     {
-        string titulo = item.idPermiso == 0 ? "Nuevo Permiso" : "Editar Permiso";
+        string titulo = item.Id == 0 ? "Nuevo Permiso" : "Editar Permiso";
         //List<Permisos> permisos = permisosManager.ObtenerTodos;
 
         Permisos permiso;
-        // if(item.idPermiso == 0)
+        // if(item.Id == 0)
         // {
         //     permiso = new Permisos();
         // }
         // else
         // {
-        //     //permiso = permisosManager.ObtenerPorId(item.idPermiso);
+        //     //permiso = permisosManager.ObtenerPorId(item.Id);
         // }
 
 
@@ -198,7 +198,7 @@
     //          <RadzenDatePicker @bind-value=@item.fecha ShowTime="true" DateFormat="dd/mm/yyyy" />
 
     //          <div class="col-2">Folio</div>
-    //          <div class="col-4"><RadzenText @bind-value=@item.idPermiso class="w-100" /></div>
+    //          <div class="col-4"><RadzenText @bind-value=@item.Id class="w-100" /></div>
             
     //          <div class="col-2">Nombre</div>
     //          <div class="col-4"><RadzenTextBox @bind-value=@item.nombre class="w-100" /></div>

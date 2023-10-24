@@ -1,4 +1,5 @@
 ﻿using COMMON.Entidades;
+using COMMON.Modelos;
 using DAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +17,11 @@ namespace WebAPI.api
         }
         [HttpGet("ObtenerPerfil")]
 
-        public ActionResult<List<Perfil>> ObtenerPerfil()
+        public ActionResult<List<ListaPerfilModel>> ObtenerPerfil()
         {
             try
             {
-                var r = repositorio.Query<Perfil>("Select * from Perfil");
+                var r = repositorio.Query<ListaPerfilModel>("Select * from ListaPerfil");
                 if(r != null)
                 {
                     return Ok(r);

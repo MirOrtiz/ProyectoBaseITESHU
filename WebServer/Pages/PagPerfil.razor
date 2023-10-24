@@ -1,26 +1,26 @@
 ﻿@inject NotificationService NotificationService
 
-@page "/Perfil"
+@page "/PagPerfil"
 
 <h3>Perfil</h3>
 
-<RadzenButton Text="Nuevo" Icon="add" Click="(()=>Editar(new Perfil()))" ButtonStyle="ButtonStyle.Info" /> 
+<RadzenButton Text="Nuevo" Icon="add" Click="(()=>Editar(new ListaPerfilModel()))" ButtonStyle="ButtonStyle.Info" /> 
 
 <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false"
                 FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15"
                 AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left"
-                ShowPagingSummary="true" Data="@items" TItem="Perfil"
+                ShowPagingSummary="true" Data="@items" TItem="ListaPerfilModel"
                 LogicalFilterOperator="LogicalFilterOperator.Or">
     <Columns>
-        <RadzenDataGridColumn TItem="Perfil" Title="Folio" Property="Id" Width="50px" />
-        <RadzenDataGridColumn TItem="Perfil" Title="Nombre Completo" Property="nombreEmp" />
-        <RadzenDataGridColumn TItem="Perfil" Title="Clave" Property="claveEmp"/>
-        <RadzenDataGridColumn TItem="Perfil" Title="Departamento" Property="departamentoEmp"/>
-        <RadzenDataGridColumn TItem="Perfil" Title="Telefono" Property="telefonoEmp"/>
-        <RadzenDataGridColumn TItem="Perfil" Title="E-mail" Property="correoEmp"/> 
-        <RadzenDataGridColumn TItem="Perfil" Title="Fecha Ingreso" Property="fechaIngreso" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Folio" Property="Id" Width="50px" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Nombre Completo" Property="nombreEmp" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Clave" Property="claveEmp" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Departamento" Property="nombreDpto" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Telefono" Property="telefonoEmp" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="E-mail" Property="correoEmp" />
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Fecha Ingreso" Property="fechaIngreso" />
 
-        <RadzenDataGridColumn TItem="Perfil" Title="Acciones" Width="100px" Filterable="false" Sortable="false">
+        <RadzenDataGridColumn TItem="ListaPerfilModel" Title="Acciones" Width="100px" Filterable="false" Sortable="false">
 
             <Template Context="dato">
                 <RadzenButton Icon="edit" Click="(()=>Editar(dato))" ButtonStyle="ButtonStyle.Warning" />
@@ -35,8 +35,9 @@
 </RadzenStack>
 
 @code {
-    List<Perfil> items;
+    List<ListaPerfilModel> items;
     PerfilManager perfilManager;
+    DepartamentosManager departamentosManager;
 
     private void OnClick(string text)
     {
@@ -46,19 +47,29 @@
     {
         base.OnInitialized();
         perfilManager = FabricManager.PerfilManager();
+        departamentosManager = FabricManager.DepartamentosManager();
         Actualizar();
     }
 
     void Actualizar()
     {
         items = null;
-        items = perfilManager.ObtenerTodos;
+        items = perfilManager.ObtenerPerfil();
         StateHasChanged();
     }
 
-    async Task Editar(Perfil item)
+    async Task Editar(ListaPerfilModel item)
     {
         string titulo = item.Id == 0 ? "Agregar Perfil" : "Editar Perfil";
+        Perfil perfil;
+        if(item.Id == 0)
+        {
+            perfil = new Perfil();
+        }
+        else
+        {
+            perfil = perfilManager.ObtenerPorId(item.Id);
+        }
 
         var result = await DialogService.OpenAsync(titulo, ds =>
     @<RadzenStack Gap="1.5rem">
@@ -70,13 +81,13 @@
             <div class="col-2">Clave</div>
             <div class="col-4"><RadzenTextBox @bind-Value=@item.claveEmp class="w-100" /></div>
             <div class="col-2">Departamento</div>
-            <div class="col-4"><RadzenTextBox @bind-Value=@item.departamentoEmp class="w-100" /></div>
+            <div class="col-4"><RadzenTextBox @bind-Value=@item.nombreDpto class="w-100" /></div>
             <div class="col-2">Telefono</div>
             <div class="col-4"><RadzenTextBox @bind-Value=@item.telefonoEmp class="w-100" /></div>
             <div class="col-2">E-mail</div>
             <div class="col-4"><RadzenTextBox @bind-Value=@item.correoEmp class="w-100" /></div>
             <div class="col-2">Fecha Ingreso</div>
-            <div class="col-4"><RadzenTextBox @bind-Value=@item.fechaIngreso class="w-100" /></div>
+            <div class="col-4"><RadzenDatePicker @bind-Value=@item.fechaSolicitud class="w-100" /></div>
         </div>
         <div class="row">
             <div class="col-6"><RadzenButton Icon="save" Text="Guardar" Click="(()=>Guardar(item))" ButtonStyle="ButtonStyle.Success" class="w-100" /></div>
@@ -86,7 +97,7 @@
     );
     }
 
-    async Task Eliminar(Perfil item)
+    async Task Eliminar(ListaPerfilModel item)
     {
         // var r = await DialogService.Confirm($"Deseas eliminar al Empleado(a) {item.Id} {item.nombreEmp} ?", "AppVacacionesMarpa", new ConfirmOptions() { OkButtonText = "Si", CancelButtonText = "No" });
         // if (r.Value)
@@ -104,17 +115,17 @@
 
     }
 
-    async Task Guardar(Perfil item)
+    async Task Guardar(ListaPerfilModel item)
     {
-        // var r = item.Id == 0 ? manager.Insertar(item) : manager.Actualizar(item);
-        // if(r != null)
+        // var r = item.Id == 0 ? perfilManager.Insertar(item) : perfilManager.Actualizar(item);
+        // if(r != null) 
         // {
         //     DialogService.Close();
         //     Actualizar();
         // }
         // else
         // {
-        //     await DialogService.Alert(manager.Error, "Error:", new AlertOptions() { OkButtonText = "OK" });
+        //     await DialogService.Alert(perfilManager.Error, "Error:", new AlertOptions() { OkButtonText = "OK" });
         // }
     }
 
