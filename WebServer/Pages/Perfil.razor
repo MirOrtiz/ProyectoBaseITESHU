@@ -36,7 +36,7 @@
 
 @code {
     List<Perfil> items;
-    PerfilManager manager;
+    PerfilManager perfilManager;
 
     private void OnClick(string text)
     {
@@ -45,22 +45,23 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        manager = FabricManager.PerfilManager();
+        perfilManager = FabricManager.PerfilManager();
         Actualizar();
     }
 
     void Actualizar()
     {
         items = null;
-        items = manager.ObtenerTodos;
+        items = perfilManager.ObtenerTodos;
         StateHasChanged();
     }
 
     async Task Editar(Perfil item)
     {
         string titulo = item.Id == 0 ? "Agregar Perfil" : "Editar Perfil";
+
         var result = await DialogService.OpenAsync(titulo, ds =>
-    @<RadzenStack Gap="1.Srom">
+    @<RadzenStack Gap="1.5rem">
         <div class="row">
             <div class="col-2">Folio</div>
             <div class="col-4"><RadzenText @bind-Value=@item.Id class="w-100"/></div> 
@@ -87,7 +88,7 @@
 
     async Task Eliminar(Perfil item)
     {
-        // var r = await DialogService.Confirm($"Deseas eliminar al Empleado(a) {item.Id} {item.nombreEmpl} ?", "AppVacacionesMarpa", new ConfirmOptions() { OkButtonText = "Si", CancelButtonText = "No" });
+        // var r = await DialogService.Confirm($"Deseas eliminar al Empleado(a) {item.Id} {item.nombreEmp} ?", "AppVacacionesMarpa", new ConfirmOptions() { OkButtonText = "Si", CancelButtonText = "No" });
         // if (r.Value)
         // {
         //     if (manager.Eliminar(item.Id))
