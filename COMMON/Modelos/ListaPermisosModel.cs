@@ -8,17 +8,17 @@ namespace COMMON.Modelos
 {
     public class ListaPermisosModel : ModelBase 
     {
-        public int idEmpleado { get; set; }
+        public int Id { get; set; }
         public string nombreEmp { get; set; }
-        public string clave { get; set; }
-        public string NombreDpto { get; set; }
-        public DateOnly fechaSolcitud { get; set; }
+        public string claveEmp { get; set; }
+        public string nombreDpto { get; set; }
+        public DateTime fechaSolcitud { get; set; }
         public string tipoPermiso { get; set; }
-        public DateOnly permisoDiasInicio { get; set; }
-        public DateOnly permisoDiasFin { get; set; }
+        public DateTime periodoDiasInicio { get; set; }
+        public DateTime periodoDiasFin { get; set; }
         public int cantidadDias { get; set; }
-        public DateOnly permisoHorasInicio { get; set; }
-        public DateOnly permisohorasFin { get; set; }
+        public DateTime periodoHorasInicio { get; set; }
+        public DateTime periodoHorasFin { get; set; }
         public int cantidadHoras { get; set; }
         public string motivoPermiso { get; set; }
         public string estadoPermiso { get; set; }

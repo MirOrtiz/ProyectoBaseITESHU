@@ -1,4 +1,5 @@
 ﻿using COMMON.Entidades;
+using COMMON.Modelos;
 using DAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +17,11 @@ namespace WebAPI.api
 
         }
         [HttpGet("ObtenerPermiso")]
-        public ActionResult<List<Permisos>> ObtenerPermiso()
+        public ActionResult<List<ListaPermisosModel>> ObtenerPermiso()
         {
             try
             {
-                var r = repositorio.Query<Permisos>("Select * from Permisos");
+                var r = repositorio.Query<ListaPermisosModel>("Select * from ListaPermisos");
                 if (r != null)
                 {
                     return Ok(r);

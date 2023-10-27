@@ -1,4 +1,5 @@
 ﻿using COMMON.Entidades;
+using COMMON.Modelos;
 using COMMON.Validadores;
 using Newtonsoft.Json;
 using System;
@@ -14,7 +15,7 @@ namespace BIZ
         public PermisosManager(string urlBase, BaseValidator<Permisos> validador) : base(urlBase, validador)
         {
         }
-        public List<Permisos> ObtenerPermiso()
+        public List<ListaPermisosModel> ObtenerPermiso()
         {
             try
             {
@@ -27,14 +28,14 @@ namespace BIZ
                 return null;
             }
         }
-        private async Task<List<Permisos>> ObtenerPermisoAsync()
+        private async Task<List<ListaPermisosModel>> ObtenerPermisoAsync()
         {
             HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}/api/{tabla}/ObtenerPermiso").ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 Error = "";
-                return JsonConvert.DeserializeObject<List<Permisos>>(content);
+                return JsonConvert.DeserializeObject<List<ListaPermisosModel>>(content);
             }
             else
             {

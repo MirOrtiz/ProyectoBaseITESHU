@@ -3,32 +3,32 @@
 @page "/PagPermisos"
 
 <h3>Permisos</h3>
-
-<RadzenDataGrid Data="@items" TItem="Permisos">
+@* 
+<RadzenDataGrid Data="@items" TItem="ListaPermisosModel">
 
 <RadzenCard class="my-4">
     <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.End" Wrap="FlexWrap.Wrap" Gap="4px">
         <RadzenButton Click=@(args => OnClick(" ")) Text="Nuevo Permiso" Icon="add_circle_outline" ButtonStyle="ButtonStyle.Info">  </RadzenButton>
     </RadzenStack>
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="fecha" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="fechaSolicitud" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Fecha
     </RadzenStack>
-    <RadzenDatePicker @bind-Value=@fecha ShowTime="true" DateFormat="dd/MM/yyyy" />
+    <RadzenDatePicker @bind-Value=@fechaSolicitud ShowTime="true" DateFormat="dd/MM/yyyy" />
 
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="idPermiso" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="Id" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Folio
-        <RadzenText @bind-Value="@idPermiso" />
+        <RadzenText @bind-Value="@Id" />
     </RadzenStack>
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="nombre" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="nombre" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Nombre
-        <RadzenTextBox @bind-Value="@nombre" />
+        <RadzenTextBox @bind-Value="@nombreEmp" />
     </RadzenStack>
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="clave" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="clave" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Clave
-        <RadzenTextBox @bind-Value="@clave" />
+        <RadzenTextBox @bind-Value="@claveEmp" />
     </RadzenStack>
 
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="departamento" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="departamento" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Departamento
         <RadzenTextBox @bind-Value="@departamento" />
     </RadzenStack>
@@ -47,22 +47,22 @@
     <div class="rz-p-12 rz-text-align-fill">
 
 
-        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="fecha1" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+            <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="fecha1" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             Del Día
         </RadzenStack>
         <RadzenDatePicker @bind-Value=@fecha1 ShowTime="true" DateFormat="dd/MM/yyyy" />
         <b></b>
-        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="fecha2" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+            <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="fecha2" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             Al Día
         </RadzenStack>
         <RadzenDatePicker @bind-Value=@fecha2 ShowTime="true" DateFormat="dd/MM/yyyy" />
         <b></b>
-        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="hora1" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+            <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="hora1" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             De la Hora
         </RadzenStack>
         <RadzenDatePicker @bind-Value=@hora1 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
         <b></b>
-        <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="hora2" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+            <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="hora2" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
             A la Hora
         </RadzenStack>
         <RadzenDatePicker @bind-Value=@hora2 ShowTime="true" HourFormat="12" DateFormat="dd/MM/yyyy h:mm tt" />
@@ -70,11 +70,11 @@
     </div>
 
 
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="motivoPermiso" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="motivoPermiso" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Motivo Permiso
         <RadzenTextBox @bind-Value="@motivoPermiso" />
     </RadzenStack>
-    <RadzenStack Orientation="Orientation.Vertical" TItem="Permisos" Property="diasAusente" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
+        <RadzenStack Orientation="Orientation.Vertical" TItem="ListaPermisosModel" Property="diasAusente" AlignItems="AlignItems.Start" Wrap="FlexWrap.Wrap" Gap="4px">
         Permiso de Días para Ausentarse
         <RadzenText @bind-Value="@diasAusente" />
     </RadzenStack>
@@ -86,64 +86,64 @@
 
 
 
-</RadzenCard>
-
+@* </RadzenCard> *@
+ 
     @* <Template Context="dato">
     <RadzenButton Icon="edit" Click="(()=>Editar(dato))" ButtonStyle="ButtonStyle.Warning" />
     <RadzenButton Icon="delete" Click="(()=>Eliminar(dato))" ButtonStyle="ButtonStyle.Danger" /> *@
     @* </Template> *@ 
 
 
-</RadzenDataGrid>
+@* </RadzenDataGrid> *@
 
-<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem" Wrap="FlexWrap.Wrap">
+@* <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem" Wrap="FlexWrap.Wrap">
     <RadzenButton Click=@(args => OnClick("Primary button")) Text="Enviar Solicitud" ButtonStyle="ButtonStyle.Primary" />
     @* <RadzenLink Target="Index.razor" Text="Enviar Solicitud"/>  @*  Redirreccionar a otra pagina *@
-</RadzenStack>
+@* </RadzenStack> *@
 @* Condicionar el alert para que se muestre solo cuando se pulse el boton Enviar Solicitud *@
-<RadzenAlert AlertStyle="AlertStyle.Success" Variant="Variant.Flat" Shade="Shade.Lighter">
+@* <RadzenAlert AlertStyle="AlertStyle.Success" Variant="Variant.Flat" Shade="Shade.Lighter">
     Tu Solicitud ha sido enviada Correctamente
-</RadzenAlert>
+</RadzenAlert> *@
 
 
 
 
 
 @code {
-    List<Permisos> items;  //ListaPermisosModel 
-    PermisosManager permisosManager; //ListaPermisosModel
+    // List<ListaPermisosModel> items;  //ListaPermisosModel
+    // PermisosManager permisosManager; //ListaPermisosModel
 
-    bool value1;
-    bool value2;
-    DateTime? fecha;
-    DateTime? fecha1;
-    DateTime? fecha2;
-    DateTime? hora1 = DateTime.Now;
-    DateTime? hora2 = DateTime.Now;
+    // bool value1;
+    // bool value2;
+    // DateTime? fecha;
+    // DateTime? fecha1;
+    // DateTime? fecha2;
+    // DateTime? hora1 = DateTime.Now;
+    // DateTime? hora2 = DateTime.Now;
 
     //DateTime val;
 
 
-    Orientation orientation = Orientation.Horizontal;
-    AlignItems alignItems = AlignItems.Normal;
-    JustifyContent justifyContent = JustifyContent.Normal;
-    FlexWrap wrap = FlexWrap.NoWrap;
-    string gap = " ";
-    string gap1 = " ";
-    int idPermiso = 0;
-    string nombre = " ";
-    string clave = " ";
-    string departamento = " ";
-    string ConSueldo = " ";
-    string SinSueldo = " ";
-    string dias = " ";
-    string horas = " ";
-    string motivoPermiso = " ";
-    int diasAusente = 0;
-    string permConSueldo = " ";
-    string permSinSueldo = " ";
-    string pikerDias = " ";
-    bool reverse;
+    // Orientation orientation = Orientation.Horizontal;
+    // AlignItems alignItems = AlignItems.Normal;
+    // JustifyContent justifyContent = JustifyContent.Normal;
+    // FlexWrap wrap = FlexWrap.NoWrap;
+    // string gap = " ";
+    // string gap1 = " ";
+    // int idPermiso = 0;
+    // string nombre = " ";
+    // string clave = " ";
+    // string departamento = " ";
+    // string ConSueldo = " ";
+    // string SinSueldo = " ";
+    // string dias = " ";
+    // string horas = " ";
+    // string motivoPermiso = " ";
+    // int diasAusente = 0;
+    // string permConSueldo = " ";
+    // string permSinSueldo = " ";
+    // string pikerDias = " ";
+    // bool reverse;
 
     private void OnClick(string text)
     {
@@ -153,7 +153,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        permisosManager = FabricManager.PermisosManager();
+       // permisosManager = FabricManager.PermisosManager();
         // List<string> dias = new List<string>();
         // dias.Add("A cuenta de días de vacaciones");
         // dias.Add("A cuenta de días no laborales, laborados");
@@ -165,7 +165,7 @@
 
     void Actualizar()
     {
-        items = null;
+       // items = null;
         //items = permisosManager.ObtenerPermiso();
         Actualizar();
     }
